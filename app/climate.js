@@ -2,9 +2,13 @@ import { View, Text, Image, StyleSheet, Pressable } from "react-native";
 import climateImage from "../assets/images/climate.png";
 import { MaterialCommunityIcons, Entypo } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import { useState } from "react";
 
 const ClimateScreen = () => {
   const router = useRouter();
+
+  const [temperature, setTemperature] = useState(68);
+  const [powerState, setPowerState] = useState(false);
 
   return (
     <View style={styles.container}>
@@ -18,15 +22,34 @@ const ClimateScreen = () => {
         <Text style={styles.label}>Interior 74°F - Exterior 66°F</Text>
 
         <View style={styles.controlsRow}>
-          <View style={styles.iconButtonContainer}>
-            <MaterialCommunityIcons name="power" size={42} color="white" />
-            <Text style={styles.iconButtonText}>On</Text>
-          </View>
+          <Pressable
+            onPress={() => setPowerState(!powerState)}
+            style={styles.iconButtonContainer}
+          >
+            <MaterialCommunityIcons
+              name="power"
+              size={42}
+              color={powerState ? "#E82127" : "gray"}
+            />
+            <Text style={styles.iconButtonText}>
+              {powerState ? "On" : "Off"}
+            </Text>
+          </Pressable>
 
           <View style={styles.temperatureContainer}>
-            <Entypo name="chevron-left" size={30} color="gray" />
-            <Text style={styles.temperatureText}>68°</Text>
-            <Entypo name="chevron-right" size={30} color="gray" />
+            <Entypo
+              onPress={() => setTemperature(temperature - 1)}
+              name="chevron-left"
+              size={30}
+              color="gray"
+            />
+            <Text style={styles.temperatureText}>{temperature}°</Text>
+            <Entypo
+              onPress={() => setTemperature(temperature + 1)}
+              name="chevron-right"
+              size={30}
+              color="gray"
+            />
           </View>
 
           <View style={styles.iconButtonContainer}>
