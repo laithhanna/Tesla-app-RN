@@ -1,37 +1,47 @@
-import { Pressable, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { useState } from "react";
 import {
   Entypo,
   MaterialCommunityIcons,
   FontAwesome5,
   Ionicons,
 } from "@expo/vector-icons";
-import { useState } from "react";
 
 const Controls = () => {
   const [lock, setLock] = useState(true);
   const [boltState, setBoltState] = useState(false);
+  const [fanState, setFanState] = useState(false);
+  const [carState, setCarState] = useState(false);
 
   return (
     <View style={styles.controls}>
-      <Pressable onPress={() => setLock(!lock)}>
-        <Entypo
-          name={lock ? "lock" : "lock-open"}
-          size={26}
-          color={lock ? "gray" : "white"}
-        />
-      </Pressable>
+      <Entypo
+        onPress={() => setLock(!lock)}
+        name={lock ? "lock" : "lock-open"}
+        size={26}
+        color={lock ? "gray" : "white"}
+      />
 
-      <MaterialCommunityIcons name="fan" size={26} color="gray" />
+      <MaterialCommunityIcons
+        onPress={() => setFanState(!fanState)}
+        name="fan"
+        size={26}
+        color={fanState ? "white" : "gray"}
+      />
 
-      <Pressable onPress={() => setBoltState(!boltState)}>
-        <FontAwesome5
-          name="bolt"
-          size={26}
-          color={boltState ? "yellow" : "gray"}
-        />
-      </Pressable>
+      <FontAwesome5
+        onPress={() => setBoltState(!boltState)}
+        name="bolt"
+        size={26}
+        color={boltState ? "yellow" : "gray"}
+      />
 
-      <Ionicons name="car-sport-sharp" size={26} color="gray" />
+      <Ionicons
+        onPress={() => setCarState(!carState)}
+        name="car-sport-sharp"
+        size={26}
+        color={carState ? "white" : "gray"}
+      />
     </View>
   );
 };

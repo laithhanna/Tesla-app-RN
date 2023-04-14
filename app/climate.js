@@ -9,6 +9,7 @@ const ClimateScreen = () => {
 
   const [temperature, setTemperature] = useState(68);
   const [powerState, setPowerState] = useState(false);
+  const [carDoorState, setCarDoorState] = useState(false);
 
   return (
     <View style={styles.container}>
@@ -52,10 +53,17 @@ const ClimateScreen = () => {
             />
           </View>
 
-          <View style={styles.iconButtonContainer}>
-            <MaterialCommunityIcons name="car-door" size={42} color="gray" />
+          <Pressable
+            onPress={() => setCarDoorState(!carDoorState)}
+            style={styles.iconButtonContainer}
+          >
+            <MaterialCommunityIcons
+              name="car-door"
+              size={42}
+              color={carDoorState ? "white" : "gray"}
+            />
             <Text style={styles.iconButtonText}>Vent</Text>
-          </View>
+          </Pressable>
         </View>
       </View>
     </View>

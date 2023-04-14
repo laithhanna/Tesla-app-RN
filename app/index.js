@@ -1,12 +1,4 @@
-import { StyleSheet, Text, View, Image, FlatList } from "react-native";
-import {
-  FontAwesome,
-  Entypo,
-  MaterialCommunityIcons,
-  MaterialIcons,
-  FontAwesome5,
-  Ionicons,
-} from "@expo/vector-icons";
+import { StyleSheet, View, Image, FlatList } from "react-native";
 import carImg from "../assets/images/car.png";
 import menuOptions from "../assets/menuOptions";
 
