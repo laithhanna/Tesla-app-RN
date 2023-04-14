@@ -10,7 +10,9 @@ import {
 import carImg from "../assets/images/car.png";
 import menuOptions from "../assets/menuOptions";
 
+//custom components
 import MenuOption from "../components/MenuOption";
+import Controls from "../components/Controls";
 
 export default function Page() {
   return (
@@ -25,12 +27,7 @@ export default function Page() {
 
       <Image source={carImg} style={styles.image} resizeMode="contain" />
 
-      <View style={styles.controls}>
-        <Entypo name="lock" size={26} color="gray" />
-        <MaterialCommunityIcons name="fan" size={26} color="gray" />
-        <FontAwesome5 name="bolt" size={26} color="gray" />
-        <Ionicons name="car-sport-sharp" size={26} color="gray" />
-      </View>
+      <Controls />
 
       <FlatList data={menuOptions} renderItem={MenuOption} />
     </View>
@@ -62,10 +59,5 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: 300,
-  },
-  controls: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    marginVertical: 20,
   },
 });
