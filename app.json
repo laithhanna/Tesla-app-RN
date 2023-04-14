@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "scheme": "acme",
+    "web": {
+      "bundler": "metro"
+    },
+    "name": "Tesla_RN",
+    "slug": "Tesla_RN"
+  }
+}
