@@ -10,6 +10,8 @@ import {
 import carImg from "../assets/images/car.png";
 import menuOptions from "../assets/menuOptions";
 
+import MenuOption from "../components/MenuOption";
+
 export default function Page() {
   return (
     <View style={styles.container}>
@@ -30,25 +32,7 @@ export default function Page() {
         <Ionicons name="car-sport-sharp" size={26} color="gray" />
       </View>
 
-      <FlatList
-        data={menuOptions}
-        renderItem={({ item }) => (
-          <View style={styles.optionRow}>
-            <MaterialCommunityIcons
-              name={item.iconName}
-              size={26}
-              color={"gray"}
-            />
-            <Text style={styles.optionText}>{item.name}</Text>
-            <MaterialIcons
-              name="keyboard-arrow-right"
-              size={24}
-              color="gray"
-              style={{ marginLeft: "auto" }}
-            />
-          </View>
-        )}
-      />
+      <FlatList data={menuOptions} renderItem={MenuOption} />
     </View>
   );
 }
@@ -83,16 +67,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     marginVertical: 20,
-  },
-  optionRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginVertical: 20,
-  },
-  optionText: {
-    color: "#eee",
-    fontSize: 18,
-    fontWeight: "bold",
-    marginLeft: 10,
   },
 });
